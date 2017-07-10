@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false" language="java" contentType="text/html; charset=utf-8"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -44,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="caption">
                     <div class="w3layouts-info">
 						<div class="w3layouts-info-top">
-							<h3>17�c</h3>
+							<h3>17ï¿½c</h3>
 							<h4>Rainy</h4>
 							<p>San Francisco</p>
 						</div>
@@ -61,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="caption">
                     <div class="w3layouts-info">
 						<div class="w3layouts-info-top">
-							<h3>12�c</h3>
+							<h3>12ï¿½c</h3>
 							<h4>Rainy</h4>
 							<p>San Francisco</p>
 						</div>
@@ -78,7 +80,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="caption">
                     <div class="w3layouts-info">
 						<div class="w3layouts-info-top">
-							<h3>20�c</h3>
+							<h3>20ï¿½c</h3>
 							<h4>Cloudy</h4>
 							<p>San Francisco</p>
 						</div>
@@ -95,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="caption">
 					<div class="w3layouts-info">
 						<div class="w3layouts-info-top">
-							<h3>22�c</h3>
+							<h3>22ï¿½c</h3>
 							<h4>Sunny</h4>
 							<p>San Francisco</p>
 						</div>
@@ -112,7 +114,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="caption">
 					<div class="w3layouts-info">
 						<div class="w3layouts-info-top">
-							<h3>-5�c</h3>
+							<h3>-5ï¿½c</h3>
 							<h4>Snowy</h4>
 							<p>San Francisco</p>
 						</div>
@@ -128,7 +130,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 	<!--copyright-->
 	<div class="w3ls-copyright">
-		<p>� 2017 Tab Weather Widget . All Rights Reserved  | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+		<p>ï¿½ 2017 Tab Weather Widget . All Rights Reserved  | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 	</div>
 	<!--//copyright-->
 </div>
