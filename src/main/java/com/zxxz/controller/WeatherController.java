@@ -24,11 +24,13 @@ public class WeatherController {
 	private static final Logger logger = LoggerFactory.getLogger(WeatherController.class);
 	
 	
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/queryWeatherMsg/v1.0", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getWeatherMsg(HttpServletRequest request, HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
+		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){
 			logger.info("参数错误");
@@ -37,7 +39,7 @@ public class WeatherController {
 		params.put("city", city);
 		params.put("appkey", Constants.jdSecret);
 		String resp = HttpToolKit.doGet(weatherUrl, params);
-		Map result = GsonUtils.fromJson(resp, Map.class);
+		result = GsonUtils.fromJson(resp, Map.class);
 		if(result!= null){
 			jsonResponse=JsonResponse.buildSuccess("查询成功", result);
 		}else{
