@@ -152,7 +152,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+		<!-- mybatis核心包 -->
 		<dependency>  
             <groupId>org.mybatis</groupId>  
             <artifactId>mybatis</artifactId>  
