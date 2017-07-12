@@ -20,13 +20,13 @@
     delete from user_t
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.javen.model.User" >
+  <insert id="insert" parameterType="com.zxxz.entity.User" >
     insert into user_t (id, user_name, password, 
       age)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.javen.model.User" >
+  <insert id="insertSelective" parameterType="com.zxxz.entity.User" >
     insert into user_t
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.javen.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zxxz.entity.User" >
     update user_t
     <set >
       <if test="userName != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.javen.model.User" >
+  <update id="updateByPrimaryKey" parameterType="com.zxxz.entity.User" >
     update user_t
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
