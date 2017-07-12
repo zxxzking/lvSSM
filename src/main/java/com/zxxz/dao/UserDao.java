@@ -1,6 +1,6 @@
 package com.zxxz.dao;
 
-import entity.User;
+import com.zxxz.entity.User;
 
 public interface UserDao {
 	 int deleteByPrimaryKey(Integer id);

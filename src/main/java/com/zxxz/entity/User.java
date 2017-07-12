@@ -1,4 +1,4 @@
-package entity;
+package com.zxxz.entity;
 
 public class User {
 	private Integer id;
