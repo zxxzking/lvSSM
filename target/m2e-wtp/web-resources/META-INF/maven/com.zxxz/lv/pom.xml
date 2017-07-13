@@ -38,6 +38,14 @@
             <artifactId>spring-test</artifactId>  
             <version>${org.springframework-version}</version>  
         </dependency>
+        <!-- jpa相关 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-commons</artifactId>
+		    <version>1.13.4.RELEASE</version>
+		</dependency>
+        
 				
 		<!-- AspectJ -->
 		<dependency>
