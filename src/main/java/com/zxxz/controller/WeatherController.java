@@ -1,5 +1,6 @@
 package com.zxxz.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zxxz.constants.Constants;
 import com.zxxz.utils.GsonUtils;
 import com.zxxz.utils.HttpToolKit;
 import com.zxxz.utils.JsonResponse;
@@ -23,6 +24,8 @@ public class WeatherController {
 	private static final String weatherUrl = "https://way.jd.com/he/freeweather";
 	private static final Logger logger = LoggerFactory.getLogger(WeatherController.class);
 	
+	@Value("${jdSecret}")
+	private String jdSecret;
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/queryWeatherMsg/v1.0", produces = "text/html;charset=UTF-8")
@@ -30,6 +33,12 @@ public class WeatherController {
 	public String getWeatherMsg(HttpServletRequest request, HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
+		try {
+			city = new String(city.getBytes("iso8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){
@@ -37,11 +46,15 @@ public class WeatherController {
 		}
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("city", city);
-		params.put("appkey", Constants.jdSecret);
+		params.put("appkey", jdSecret);
 		String resp = HttpToolKit.doGet(weatherUrl, params);
 		result = GsonUtils.fromJson(resp, Map.class);
 		if(result!= null){
-			jsonResponse=JsonResponse.buildSuccess("查询成功", result);
+			if(!result.get("code").equals("10000")){
+				jsonResponse = JsonResponse.buildFailure("查询失败");
+			}else{
+				jsonResponse=JsonResponse.buildSuccess("查询成功", result);
+			}
 		}else{
 			jsonResponse=JsonResponse.buildFailure("无结果");
 		}
