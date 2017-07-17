@@ -6,9 +6,10 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-@ContextConfiguration(locations = {"classpath:servlet-context.xml","classpath:root-context.xml"})
+
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TestBaseCase {
+@ContextConfiguration(locations = {"classpath:root-context.xml","classpath:dataSource.xml","classpath:servlet-context.xml" })
+public class TestBaseCase{
 	// 模拟request,response  
     public MockHttpServletRequest request;  
     public MockHttpServletResponse response;  
@@ -19,5 +20,7 @@ public class TestBaseCase {
         request = new MockHttpServletRequest();      
         request.setCharacterEncoding("UTF-8");      
         response = new MockHttpServletResponse();      
-    }         
+    }    
+    
+    
 }

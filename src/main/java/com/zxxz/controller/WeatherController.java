@@ -1,6 +1,5 @@
 package com.zxxz.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,15 +29,10 @@ public class WeatherController {
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/queryWeatherMsg/v1.0", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getWeatherMsg(HttpServletRequest request, HttpServletResponse response){
+	public String getWeatherMsg(HttpServletRequest request, HttpServletResponse response) {
+		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
-		try {
-			city = new String(city.getBytes("iso8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){

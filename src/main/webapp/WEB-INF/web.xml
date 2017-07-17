@@ -26,10 +26,6 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-	<filter-mapping>
-		<filter-name>Set Character Encoding</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 
 	<!-- Processes application requests -->
 	<servlet>
@@ -41,6 +37,11 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 		
 	<servlet-mapping>
