@@ -22,7 +22,8 @@ public class DomainFilter implements Filter{
 		HttpServletResponse resp = (HttpServletResponse)response;
 		resp.setHeader("Access-Control-Allow-Headers", "X-Requested-With, accept, content-type, xxxx");
 		resp.setHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH");
-		resp.setHeader("Access-Control-Allow-Origin", "*"); 
+		resp.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8020"); 
+		resp.setHeader("Access-Control-Allow-Credentials", "true"); 
 		chain.doFilter(request, response);
 	}
 
