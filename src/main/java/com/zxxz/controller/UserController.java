@@ -32,12 +32,14 @@ public class UserController {
 	public String userLogin(HttpServletRequest request, HttpServletResponse response){
 		User user = serService.getUserById(5);
 		Map result = new HashMap<String, Object>();
-		
 		JsonResponse jsonResponse = null;
 		if(user!=null){
-			result.put("user", user);
-			jsonResponse = JsonResponse.buildSuccess("success", result);
 			HttpSession session = request.getSession();
+			result.put("user", user);
+			result.put("sessionId", session.getId());
+			jsonResponse = JsonResponse.buildSuccess("success", result);
+			
+			System.out.println(session.getId());
 			session.setAttribute("user", user);
 		}else{
 			jsonResponse = JsonResponse.buildFailure("fail");
