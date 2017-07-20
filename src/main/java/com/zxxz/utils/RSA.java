@@ -22,8 +22,7 @@ public class RSA {
 		try {
 			keyMap =  RSAUtils.getKeys();
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		RSAPublicKey publicKey = (RSAPublicKey) keyMap.get("public");
 		return publicKey;
@@ -36,8 +35,7 @@ public class RSA {
 		try {
 			keyMap =  RSAUtils.getKeys();
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		RSAPrivateKey privateKey = (RSAPrivateKey) keyMap.get("private");
 		return privateKey;

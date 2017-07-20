@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zxxz.utils.RSA;
+import com.zxxz.utils.SecurityUtils;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -21,14 +21,7 @@ public class UserController {
 	public String userLogin(HttpServletRequest request, HttpServletResponse response){
 		
 		String passWord = request.getParameter("passWord");
-		try {
-			passWord = RSA.encryptByPublicKey(passWord);
-			
-			logger.info(passWord);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		passWord = SecurityUtils.string2MD5(passWord);
 		return passWord;
 	}
 }

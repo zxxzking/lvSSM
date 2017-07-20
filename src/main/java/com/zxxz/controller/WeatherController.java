@@ -38,11 +38,7 @@ public class WeatherController {
 		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
-		/*try {
-			city = new String(city.getBytes("iso8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			
-		}*/
+		
 		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){
