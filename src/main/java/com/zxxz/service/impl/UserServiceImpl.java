@@ -12,10 +12,18 @@ import com.zxxz.service.UserService;
 public class UserServiceImpl implements UserService{
 	@Resource  
 	private UserDao userDao;  
-	    
+	@Override    
 	public User getUserById(int userId) {  
 	        // TODO Auto-generated method stub  
 	    return this.userDao.selectByPrimaryKey(userId);  
+	}
+	@Override
+	public int addUser(){
+		User user = new User();
+		user.setAge(15);
+		user.setUserName("zzxa");
+		user.setPassword("a12345");
+		return userDao.insert(user);
 	}
 	
 }

@@ -35,8 +35,6 @@ public class WeatherController {
 	@RequestMapping(value = "/queryWeatherMsg/v1.0", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getWeatherMsg(HttpServletRequest request, HttpServletResponse response) {
-		
-		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
 		
 		Map result = new HashMap<String, Object>();

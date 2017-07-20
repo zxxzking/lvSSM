@@ -26,5 +26,12 @@ public class UserServiceTest {
 	   // System.out.println(user.getUserName());  
 	   // logger.info("值："+user.getUserName());  
 	   logger.info(JSON.toJSONString(user));  
-	}  
+	}
+	
+	@Test
+	public void test2(){
+		int addUser = userService.addUser();
+		System.out.println(addUser);
+	}
+	
 }
