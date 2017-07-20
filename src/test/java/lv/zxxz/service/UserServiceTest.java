@@ -14,11 +14,11 @@ import com.zxxz.service.UserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类  
-@ContextConfiguration(locations = {"classpath:dataSource.xml"}) 
+@ContextConfiguration(locations = {"classpath:dataSource.xml","classpath:servlet-context.xml"}) 
 public class UserServiceTest {
 	private static Logger logger = Logger.getLogger(UserServiceTest.class);  
 	@Resource  
-	private UserService userService = null; 
+	private UserService userService; 
 	 
 	@Test  
 	public void test1() {  

@@ -1,8 +1,10 @@
 package com.zxxz.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zxxz.entity.User;
+import com.zxxz.service.UserService;
 import com.zxxz.utils.GsonUtils;
 import com.zxxz.utils.HttpToolKit;
 import com.zxxz.utils.JsonResponse;
@@ -25,6 +29,8 @@ public class WeatherController {
 	
 	@Value("${jdSecret}")
 	private String jdSecret;
+	@Resource
+	private UserService userService;
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/queryWeatherMsg/v1.0", produces = "text/html;charset=UTF-8")
@@ -33,6 +39,11 @@ public class WeatherController {
 		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
+		try {
+			city = new String(city.getBytes("iso8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			
+		}
 		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){
@@ -54,4 +65,14 @@ public class WeatherController {
 		}
 		return jsonResponse.toJsonString();
 	}
+	@RequestMapping(value = "/query/v1.0", produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String query(HttpServletRequest request,HttpServletResponse response){
+		User user = userService.getUserById(5);
+		JsonResponse jsonResponse = null;
+		jsonResponse = JsonResponse.buildSuccess("成功", user);
+		return jsonResponse.toJsonString();
+	}
+	
+	
 }
