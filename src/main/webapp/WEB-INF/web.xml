@@ -53,7 +53,7 @@
 	
 	<filter-mapping>
 		<filter-name>Set Character Encoding</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
 	
 		

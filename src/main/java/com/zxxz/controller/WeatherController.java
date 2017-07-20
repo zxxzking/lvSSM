@@ -1,6 +1,5 @@
 package com.zxxz.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,11 +38,11 @@ public class WeatherController {
 		
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		String city = request.getParameter("city");
-		try {
+		/*try {
 			city = new String(city.getBytes("iso8859-1"),"utf-8");
 		} catch (UnsupportedEncodingException e) {
 			
-		}
+		}*/
 		Map result = new HashMap<String, Object>();
 		JsonResponse jsonResponse = null;
 		if(StringUtils.isBlank(city)){
@@ -73,6 +72,5 @@ public class WeatherController {
 		jsonResponse = JsonResponse.buildSuccess("成功", user);
 		return jsonResponse.toJsonString();
 	}
-	
 	
 }
