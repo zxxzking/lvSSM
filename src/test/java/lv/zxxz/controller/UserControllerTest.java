@@ -17,6 +17,11 @@ public class UserControllerTest extends TestBaseCase{
 		String res = userController.userLogin(request, response);
 		System.out.println(res);
 	}
+	@Test
+	public void Test2(){
+		userController.test(request, response);
+		
+	}
 	
 	
 	

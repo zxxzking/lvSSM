@@ -14,13 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zxxz.common.BaseController;
 import com.zxxz.entity.User;
 import com.zxxz.service.UserService;
 import com.zxxz.utils.JsonResponse;
 
 @Controller
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController extends BaseController{
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	@Resource
 	private UserService serService;
@@ -45,5 +46,23 @@ public class UserController {
 			jsonResponse = JsonResponse.buildFailure("fail");
 		}
 		return jsonResponse.toJsonString();
+	}
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "login1",produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String test(HttpServletRequest request, HttpServletResponse response){
+		User user = new User();
+		user.setAge(55);
+		user.setId(3);
+		user.setUserName("zxxz");
+		user.setPassword("123");
+		
+		try {
+			objSetAttribute(request, user, User.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return null;
 	}
 }
