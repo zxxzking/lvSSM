@@ -16,6 +16,9 @@
     from user_t
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select * from user_t where user_name = #{name,jdbcType = VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_t
     where id = #{id,jdbcType=INTEGER}

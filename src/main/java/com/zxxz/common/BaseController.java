@@ -46,6 +46,9 @@ public class BaseController {
 			maps.put(name, object);
 		}
 		Set<String> keySet = maps.keySet();
+		for (String string : keySet) {
+			request.setAttribute(string, maps.get(string));
+		}
 		
 	}
 }

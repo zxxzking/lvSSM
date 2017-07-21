@@ -21,8 +21,10 @@
 	<mvc:annotation-driven /> 
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<!-- <mvc:resources mapping="/" location="/" />
-	 -->
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/fonts/**" location="/fonts/" />
+	<mvc:resources mapping="/script/**" location="/script/" />
+	<mvc:resources mapping="/style/**" location="/style/" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
